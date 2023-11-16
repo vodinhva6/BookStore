@@ -1,0 +1,114 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Pal\\DH\\Nam_3\\HK2\\Windows\\Project\\CKDP-College-Book-Management\\BookStore\\BookStore.csproj": {}
+  },
+  "projects": {
+    "E:\\Pal\\DH\\Nam_3\\HK2\\Windows\\Project\\CKDP-College-Book-Management\\BookStore\\BookStore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Pal\\DH\\Nam_3\\HK2\\Windows\\Project\\CKDP-College-Book-Management\\BookStore\\BookStore.csproj",
+        "projectName": "BookStore",
+        "projectPath": "E:\\Pal\\DH\\Nam_3\\HK2\\Windows\\Project\\CKDP-College-Book-Management\\BookStore\\BookStore.csproj",
+        "packagesPath": "C:\\Users\\Anh Dat\\.nuget\\packages\\",
+        "outputPath": "E:\\Pal\\DH\\Nam_3\\HK2\\Windows\\Project\\CKDP-College-Book-Management\\BookStore\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Anh Dat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0-windows7.0": {
+            "targetAlias": "net7.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0-windows7.0": {
+          "targetAlias": "net7.0-windows",
+          "dependencies": {
+            "DocumentFormat.OpenXml": {
+              "target": "Package",
+              "version": "[2.20.0, )"
+            },
+            "Fluent.Ribbon": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "LiveCharts.WinForms.NetCore3": {
+              "target": "Package",
+              "version": "[0.9.7, )"
+            },
+            "LiveCharts.Wpf.NetCore3": {
+              "target": "Package",
+              "version": "[0.9.7, )"
+            },
+            "MahApps.Metro": {
+              "target": "Package",
+              "version": "[2.4.9, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

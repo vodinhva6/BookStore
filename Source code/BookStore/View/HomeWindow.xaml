@@ -1,0 +1,235 @@
+﻿<Fluent:RibbonWindow x:Class="BookStore.View.HomeWindow"
+        ResizeMode="NoResize"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookStore.View"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+
+                     
+        mc:Ignorable="d"
+        Title="Dashboard" Height="450" Width="800" Loaded="RibbonWindow_Loaded"
+                     WindowStyle="None"  
+    WindowStartupLocation="CenterScreen" WindowState="Maximized"
+                     Closing="Window_Closing">
+    <Window.Resources>
+        <local:PriceConverter x:Key="priceConverter"/>
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+        <Fluent:Ribbon Name="ribbon" DockPanel.Dock="Top">
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage Header="BookStore">
+                    <Fluent:BackstageTabControl>
+                        <Fluent:BackstageTabItem Header="About" >
+                            <StackPanel HorizontalAlignment="Left" Margin="10">
+                                <TextBlock Text="MSSV: 20127007" Margin="0, 10, 0, 10"/>
+                                <TextBlock Text="MSSV: 20127045" Margin="0, 10, 0, 10"/>
+                                <TextBlock Text="MSSV: 20127131" Margin="0, 10, 0, 10"/>
+                                <TextBlock Text="MSSV: 20127282" Margin="0, 10, 0, 10"/>
+                            </StackPanel>
+                        </Fluent:BackstageTabItem>
+                        <Fluent:BackstageTabItem Header="Change password" MouseDown="BackstageTabItem_ChangePassword">
+
+                        </Fluent:BackstageTabItem>
+                        <Fluent:BackstageTabItem Header="Quit" MouseDown="BackstageTabItem_MouseDown">
+                            
+                        </Fluent:BackstageTabItem>
+
+                    </Fluent:BackstageTabControl>
+                </Fluent:Backstage>
+
+            </Fluent:Ribbon.Menu>
+            <!--Dashboard-->
+            <Fluent:RibbonTabItem Header="Dashboard">
+
+            </Fluent:RibbonTabItem>
+            <!--Product-->
+            <Fluent:RibbonTabItem Header="Product data">
+                <Fluent:RibbonGroupBox Header="Basic">
+                    <Fluent:Button Header="Import" Click="productImportButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/excel.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Import" Text="Import xlsx file"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Product">
+                    <Fluent:Button Header="Add" Click="addProductButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/add.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Add" Text="Add new product"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Delete" Click="deleteProductButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/delete.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Delete" Text="Delete product"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Update" Click="updateProductButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/update.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Update" Text="Update product"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Category">
+                    <Fluent:Button Header="Add" Click="addCategoryButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/add.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Add" Text="Add new category"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Delete" Click="deleteCategoryButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/delete.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Delete" Text="Delete category"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Update" Click="updateCategoryButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/update.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Update" Text="Update category"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Filter">
+                    <StackPanel Orientation="Vertical">
+                        <DockPanel Name="priceSliderDockPanel">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                                <TextBlock HorizontalAlignment="Center" Margin="10 0 10 0">Price</TextBlock>
+                                <TextBlock Text="{Binding currentPrice, Converter={StaticResource priceConverter}}" Margin="0 0 10 0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10 0 10 0" VerticalAlignment="Center" DockPanel.Dock="Bottom">
+                                <TextBlock Text="{Binding minPrice, Converter={StaticResource priceConverter}}"/>
+                                <Slider Name="priceSlider" ValueChanged="priceSlider_ValueChanged" Minimum="{Binding minPrice}" Maximum="{Binding maxPrice}" Value="{Binding currentPrice}" Width="100" Margin="10 0 10 0"/>
+                                <TextBlock Text="{Binding maxPrice, Converter={StaticResource priceConverter}}"/>
+                            </StackPanel>
+                        </DockPanel>
+                        <Fluent:ComboBox Header="Type" SelectionChanged="currentProductCategoryComboBox_SelectionChanged" Name="currentProductCategoryComboBox" IsEditable="False" Width="150" HorizontalAlignment="Left" Margin="0 10 0 0">
+                            <Fluent:ComboBox.Icon>
+                                <Image Source="../Assets/Icon/filter.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                            </Fluent:ComboBox.Icon>
+                            <Fluent:ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding CategoryName}"/>
+                                </DataTemplate>
+                            </Fluent:ComboBox.ItemTemplate>
+                        </Fluent:ComboBox>
+                    </StackPanel>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Search">
+                    <StackPanel Orientation="Horizontal" Height="70">
+                        <Fluent:TextBox Name="searchProductTextBox" TextChanged="searchProductButton_Click" mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="Type to Search" Width="150" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                        <Fluent:Button Height="35" Click="searchProductButton_Click">
+                            <Fluent:Button.LargeIcon>
+                                <Image Source="../Assets/Icon/search.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                            </Fluent:Button.LargeIcon>
+                            <Fluent:Button.ToolTip>
+                                <Fluent:ScreenTip Title="Search" Text="Search product by name"/>
+                            </Fluent:Button.ToolTip>
+                        </Fluent:Button>
+                    </StackPanel>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+            <!--Orders-->
+            <Fluent:RibbonTabItem Header="Orders">
+                <Fluent:RibbonGroupBox Header="Orders">
+                    <Fluent:Button Header="Add" Click="addOrderButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/add.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Add" Text="Add new order"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Delete" Click="deleteOrderButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/delete.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Delete" Text="Delete order"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Update" Click="updateOrderButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/update.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Update" Text="Update order"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Filter" Width="260">
+                    <DatePicker x:Name="fromDateTxt" SelectedDateChanged="fromDateTxt_SelectedDateChanged" FontSize="11" Height="40" mah:TextBoxHelper.Watermark="From Date" mah:TextBoxHelper.UseFloatingWatermark="True"/>
+                    <DatePicker x:Name="toDateTxt" SelectedDateChanged="toDateTxt_SelectedDateChanged" FontSize="11" Height="40" mah:TextBoxHelper.Watermark="To Date" mah:TextBoxHelper.UseFloatingWatermark="True"/>
+                    <Fluent:Button Header="Clear" Click="clearFilterOrderButton_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/cleaning.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+  
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+            <!--Report-->
+            <Fluent:RibbonTabItem Header="Report">
+                <Fluent:RibbonGroupBox Header="Report">
+                    <Fluent:Button Header="Report 1" Click="Report1_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/report1.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Report 1" Text="See report 1"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button> 
+                    <Fluent:Button Header="Report 2" Click="Report2_Click">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="../Assets/Icon/report2.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Fluent:Button.LargeIcon>
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Report 2" Text="See report 2"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+        </Fluent:Ribbon>
+        <TabControl Name="tabs" BorderThickness="0" SelectedIndex="{Binding ElementName=ribbon,Path=SelectedTabIndex}">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="Product data">
+                
+            </TabItem>
+            <TabItem Header="Orders">
+                <TextBlock Text="Orders"/>
+            </TabItem>
+            <TabItem Header="Report">
+                <TextBlock Text="Report"/>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Fluent:RibbonWindow>

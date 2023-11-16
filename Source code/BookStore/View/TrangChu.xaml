@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="BookStore.View.TrangChu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookStore.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Initialized="TrangChu_Initialized">
+
+    <UserControl.Resources>
+        <local:RelativeToAbsoluteConverter x:Key="absolute"/>
+        <local:CategoryConverter x:Key="category"/>
+        <local:PriceConverter x:Key="price"/>
+    </UserControl.Resources>
+    
+    <Grid Background="#FFFFFF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="325"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0"
+                    Orientation="Vertical"
+                    Margin="10,30,0,0"
+                    >
+            
+                <TextBlock Text="Tổng số sản phẩm đang bán"
+                           FontSize="15"
+                           TextAlignment="Center"/>
+                <TextBlock x:Name="totalProduct" Margin="0,5,0,0"
+                    FontSize="25" 
+                           Text="0" TextAlignment="Center"/>
+            
+            <StackPanel Margin="0,50,0,0"
+                HorizontalAlignment="Center">
+                <TextBlock FontSize="15" Text="Tổng đơn hàng mới trong tuần"/>
+                <TextBlock x:Name="weekProduct" Margin="0,5,0,0"
+                    FontSize="25" Text="0" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Margin="0,50,0,0"
+                HorizontalAlignment="Center">
+                <TextBlock FontSize="15" Text="Tổng đơn hàng mới trong tháng"/>
+                <TextBlock x:Name="monthProduct" Margin="0,5,0,0"
+                    FontSize="25" Text="0" TextAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="0" Grid.Column="1"
+                    Orientation="Vertical"
+                    Margin="10,10,0,0"
+                    >
+            <TextBlock Text="Các sản phẩm sắp hết hàng"
+                       FontSize="15"
+                       TextAlignment="Center"/>
+            <ListView Name="productListViewTrangChu" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Height="300" Width="248">
+                            <Image RenderOptions.BitmapScalingMode="HighQuality" Width="100" Height="200" Source="{Binding Image,Converter={StaticResource absolute}}"/>
+                            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center">
+                        <Run Text="{Binding Name}" FontWeight="Bold" Foreground="Blue"/>
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center">
+                        <Run Text="{Binding Type, Converter={StaticResource category}}" FontWeight="Bold"/>
+                         -
+                        <Run Text="{Binding Author}" FontWeight="Bold" Foreground="Red"/>
+                         -
+                        <Run Text="{Binding Publish}" FontWeight="Bold"/>
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center">
+                        <Run Text="{Binding Price,Converter={StaticResource price}}" FontStyle="Italic" Foreground="DarkSlateGray"/>
+                            </TextBlock>
+
+                            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center">
+                        <Run Text="Số lượng còn lại "  FontWeight="Bold"/>
+                        <Run Text="{Binding Quantity}"  FontWeight="Bold"/>
+                                                 
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.Resources>
+                    <ContextMenu x:Key="productsContextMenu">
+                        <MenuItem Header="Delete">
+                            <MenuItem.Icon>
+                                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="../Assets/Icon/delete.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Update">
+                            <MenuItem.Icon>
+                                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="../Assets/Icon/update.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </ListView.Resources>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="ContextMenu"
+                            Value="{StaticResource productsContextMenu}"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</UserControl>

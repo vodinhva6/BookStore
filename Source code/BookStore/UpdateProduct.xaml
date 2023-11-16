@@ -1,0 +1,84 @@
+﻿<mah:MetroWindow x:Class="BookStore.UpdateProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookStore"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="Update Product" Height="660" Width="300" Background="#FFD3FEFF">
+    <mah:MetroWindow.Resources>
+        <local:RelativeToAbsoluteConverter x:Key="absolute"/>
+    </mah:MetroWindow.Resources>
+    <Grid Name="productDataUpdateWindow">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label Content="Update Product" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="15" FontFamily="Century Gothic"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Name="productImage" Source="{Binding Image, Converter={StaticResource absolute}}" Height="130" Width="130" RenderOptions.BitmapScalingMode="HighQuality"/>
+            <Button Click="browseProductImageButton_Click" Width="30" Height="30" BorderThickness="0" Background="Transparent">
+                <Image Source="Assets/Icon/browse.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Button>
+        </StackPanel>
+        <DockPanel Grid.Row="2">
+            <Label DockPanel.Dock="Top" Margin="5 0 0 0" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontFamily="Century"/>
+            <TextBox Text="{Binding Name}" DockPanel.Dock="Bottom" Margin="10 0 10 0" mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="A Court of Mist and Fury"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="3">
+            <Label DockPanel.Dock="Top" Margin="5 0 0 0" Content="Author" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontFamily="Century"/>
+            <TextBox Text="{Binding Author}" DockPanel.Dock="Bottom" Margin="10 0 10 0" mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="Sarah J. Maas"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="4">
+            <Label DockPanel.Dock="Top" Margin="5 0 0 0" Content="Publish" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontFamily="Century"/>
+            <TextBox Text="{Binding Publish}" DockPanel.Dock="Bottom" Margin="10 0 10 0" mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="2023"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="5">
+            <Label DockPanel.Dock="Top" Margin="5 0 0 0" Content="Category" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontFamily="Century"/>
+            <ComboBox Name="productCategoryCombobox" DockPanel.Dock="Bottom" Margin="10 0 10 0" mah:ComboBoxHelper.CharacterCasing="Normal">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding CategoryName}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </DockPanel>
+        <DockPanel Grid.Row="6">
+            <Label DockPanel.Dock="Top" Margin="5 0 0 0" Content="Price" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontFamily="Century"/>
+            <TextBox Text="{Binding Price}" DockPanel.Dock="Bottom" Margin="10 0 10 0" mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="100000"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="7">
+            <Label DockPanel.Dock="Top" Margin="5 0 0 0" Content="Raw Price" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontFamily="Century"/>
+            <TextBox Text="{Binding RawPrice}" DockPanel.Dock="Bottom" Margin="10 0 10 0" mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="100000"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="8">
+            <Label DockPanel.Dock="Top" Margin="5 0 0 0" Content="Quantity" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontFamily="Century"/>
+            <TextBox Text="{Binding Quantity}" DockPanel.Dock="Bottom" Margin="10 0 10 0" mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="500"></TextBox>
+        </DockPanel>
+        <Grid Grid.Row="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button IsDefault="True" Click="productOKButton_Click" Grid.Column="2" Width="45" Height="45" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Style="{DynamicResource MahApps.Styles.Button.Circle}">
+                <Image Source="Assets/Icon/check.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Button>
+            <Button IsCancel="True" Grid.Column="3" Width="45" Height="45" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Style="{DynamicResource MahApps.Styles.Button.Circle}">
+                <Image Source="Assets/Icon/uncheck.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Button>
+        </Grid>
+    </Grid>
+</mah:MetroWindow>

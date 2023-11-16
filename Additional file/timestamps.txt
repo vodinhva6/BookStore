@@ -1,0 +1,64 @@
+00:00 Demo cài đặt database
+
+00:20 Hướng dẫn cài đặt chương trình
+
+01:00 Bắt đầu demo sản phẩm, Màn hình đăng nhập ( tài khoản: admin, mật khẩu: admin)
+
+01:08 Demo Quản lý hàng hoá
+
+01:12 Filter bởi giá tiền
+
+01:17 Xoá sản phẩm
+
+01:28 Thêm sản phẩm
+
+02:06 Tìm kiếm sản phẩm
+
+02:14 Sửa sản phẩm
+
+02:26 Import file .csc,.xlsx
+
+02:44 Thêm loại sản phẩm
+
+03:08 Thay đổi loại sản phẩm của sản phẩm
+
+03:33 Xoá loại sản phẩm
+
+03:53 Cập nhật loại sản phẩm
+
+04:12 Màn hình Dashboard
+
+04:26 Demo Quản lý đơn hàng
+
+04:33 Xoá đơn hàng
+
+04:43 Thêm đơn hàng
+
+05:00 Chọn hàng cho đơn hàng
+
+05:27 Cập nhật đơn hàng
+
+05:46 Filter đơn hàng theo ngày
+
+06:01 Demo Báo cáo thống kê
+
+06:04 Doanh số bán hàng theo năm
+
+06:15 Doanh số bán hàng theo tháng
+
+06:24 Doanh số bán hàng theo tuần
+
+06:31 Doanh số bán theo ngày
+
+06:43 Doanh số sản phẩm theo từng sản phẩm theo từng năm,tháng,tuần,ngày
+
+07:22 Thay đổi mật khẩu
+
+07:46 Gỡ cài đặt BookStore
+
+08:13 Kiểm tra sự thay đổi database
+
+08:18 Kết thúc demo - Cám ơn thầy đã theo dõi
+
+Bổ sung
+08:20 Demo màn hình cuối cùng khi tắt app và remember me
